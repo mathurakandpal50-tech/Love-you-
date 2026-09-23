@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Billu ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --pink:#ff6f91;
+    --pink2:#ff9bb4;
+    --white:rgba(255,255,255,.94);
+    --soft:rgba(255,255,255,.76);
+}
+
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+body{
+    font-family:'DM Sans',sans-serif;
+    color:white;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(255,100,150,.20), transparent 30%),
+        radial-gradient(circle at 85% 80%, rgba(180,80,255,.18), transparent 30%),
+        linear-gradient(135deg,#100812,#210d1b,#120816);
+}
+
+/* Animated background */
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+.orb{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.25;
+    animation:floatOrb 10s ease-in-out infinite alternate;
+}
+
+.orb.one{
+    width:300px;
+    height:300px;
+    background:#ff477e;
+    top:-100px;
+    left:-80px;
+}
+
+.orb.two{
+    width:280px;
+    height:280px;
+    background:#8c52ff;
+    bottom:-100px;
+    right:-70px;
+    animation-delay:2s;
+}
+
+.orb.three{
+    width:180px;
+    height:180px;
+    background:#ff9dca;
+    top:40%;
+    left:45%;
+    animation-delay:4s;
+}
+
+@keyframes floatOrb{
+    from{transform:translate(0,0) scale(1);}
+    to{transform:translate(50px,-35px) scale(1.15);}
+}
+
+/* Floating hearts */
+.heart{
+    position:absolute;
+    bottom:-40px;
+    color:rgba(255,160,190,.5);
+    font-size:18px;
+    animation:rise linear infinite;
+    pointer-events:none;
+}
+
+@keyframes rise{
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+    15%{opacity:.7;}
+    to{
+        transform:translateY(-115vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* Main */
+.app{
+    position:relative;
+    z-index:2;
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.card{
+    width:min(900px,94vw);
+    height:min(700px,88vh);
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    overflow:hidden;
+
+    background:rgba(255,255,255,.075);
+    border:1px solid rgba(255,255,255,.16);
+    backdrop-filter:blur(22px);
+    -webkit-backdrop-filter:blur(22px);
+
+    border-radius:30px;
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.1);
+}
+
+/* Top bar */
+.top{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:10;
+}
+
+.counter{
+    font-size:14px;
+    letter-spacing:2px;
+    color:rgba(255,255,255,.65);
+}
+
+.musicBtn{
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(255,255,255,.08);
+    color:white;
+    padding:10px 15px;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:14px;
+    backdrop-filter:blur(10px);
+}
+
+/* Progress */
+.progress{
+    position:absolute;
+    top:0;
+    left:0;
+    height:3px;
+    width:5%;
+    background:linear-gradient(90deg,#ff5d8f,#ffb0c6);
+    z-index:20;
+    transition:.5s ease;
+}
+
+/* Slides */
+.slides{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+    padding:90px 70px 80px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
+    opacity:0;
+    transform:translateX(50px) scale(.98);
+    pointer-events:none;
+
+    transition:
+        opacity .55s ease,
+        transform .65s cubic-bezier(.2,.8,.2,1);
+}
+
+.slide.active{
+    opacity:1;
+    transform:translateX(0) scale(1);
+    pointer-events:auto;
+}
+
+.content{
+    width:100%;
+    max-width:760px;
+}
+
+.kicker{
+    font-size:14px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--pink2);
+    margin-bottom:18px;
+    font-weight:600;
+}
+
+h1,h2{
+    font-family:'Playfair Display',serif;
+}
+
+h1{
+    font-size:clamp(48px,8vw,82px);
+    line-height:1.05;
+    margin-bottom:25px;
+}
+
+h2{
+    font-size:clamp(40px,6vw,60px);
+    line-height:1.12;
+    margin-bottom:25px;
+}
+
+p{
+    font-size:20px;
+    line-height:1.8;
+    color:var(--soft);
+}
+
+.big{
+    font-size:27px;
+    line-height:1.7;
+}
+
+.highlight{
+    color:#ff9bb5;
+}
+
+.quote{
+    font-family:'Playfair Display',serif;
+    font-size:29px;
+    line-height:1.65;
+    color:rgba(255,255,255,.93);
+}
+
+.memoryGrid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:25px;
+}
+
+.memoryBox{
+    padding:24px 20px;
+    border-radius:22px;
+    background:rgba(255,255,255,.065);
+    border:1px solid rgba(255,255,255,.12);
+    transition:.3s;
+}
+
+.memoryBox:hover{
+    transform:translateY(-4px);
+    background:rgba(255,255,255,.1);
+}
+
+.memoryBox strong{
+    display:block;
+    font-size:21px;
+    margin-bottom:8px;
+    color:white;
+}
+
+.memoryBox span{
+    font-size:16px;
+    line-height:1.6;
+    color:rgba(255,255,255,.65);
+}
+
+.love{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(60px,10vw,110px);
+    color:#ff789b;
+    text-shadow:0 0 35px rgba(255,90,140,.35);
+    margin:15px 0;
+}
+
+.number{
+    font-size:80px;
+    font-family:'Playfair Display',serif;
+    color:#ff89a8;
+    opacity:.9;
+}
+
+/* Final */
+.finalHeart{
+    font-size:100px;
+    animation:heartbeat 1.3s infinite;
+    margin-bottom:20px;
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1);}
+    15%{transform:scale(1.12);}
+    30%{transform:scale(1);}
+    45%{transform:scale(1.
